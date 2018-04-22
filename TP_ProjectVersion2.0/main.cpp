@@ -1,15 +1,24 @@
-//
-//  main.cpp
-//  TP_ProjectVersion2.0
-//
-//  Created by ILdar Zinatulin on 15.04.18.
-//  Copyright © 2018 ILdar Zinatulin. All rights reserved.
-//
-
 #include <iostream>
+#include "UnitsClasses/Army.cpp"
+#include "WorldsElements/Castles.cpp"
 
-int main(int argc, const char * argv[]) {
-    // insert code here...
-    std::cout << "Hello, World!\n";
+int main() {
+    
+    ArmyCreator creator;
+    PeopleArmyFactory peopleFactory;
+    OrcsArmyFactory orcsFactory;
+    ElfsArmyFactory elfsFactory;
+    
+    Army *people = creator.create(peopleFactory);
+    people->update();
+    people->increaseCntOfArchers(peopleFactory, 100);
+    
+    CastleDecorator *castle = new CastleDecorator();
+    castle = new CastleBig(castle);
+    castle = new CastleRich(castle); //make rich and big castle
+    
+    delete people;
+    delete castle;
+    
     return 0;
 }

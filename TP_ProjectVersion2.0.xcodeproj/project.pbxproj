@@ -7,7 +7,13 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		01306C66208CB46700A436B8 /* Castles.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 01306C65208CB46700A436B8 /* Castles.cpp */; };
 		01F135502083C3CE00F26A6B /* main.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 01F1354F2083C3CE00F26A6B /* main.cpp */; };
+		01F135572083C46300F26A6B /* BasicUnit.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 01F135562083C46300F26A6B /* BasicUnit.cpp */; };
+		01F135592083C54500F26A6B /* Orcs.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 01F135582083C54500F26A6B /* Orcs.cpp */; };
+		01F1355B2083C61B00F26A6B /* People.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 01F1355A2083C61B00F26A6B /* People.cpp */; };
+		01F1355D2083C77D00F26A6B /* Elfs.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 01F1355C2083C77D00F26A6B /* Elfs.cpp */; };
+		01F1355F2083C92F00F26A6B /* Army.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 01F1355E2083C92F00F26A6B /* Army.cpp */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXCopyFilesBuildPhase section */
@@ -23,8 +29,14 @@
 /* End PBXCopyFilesBuildPhase section */
 
 /* Begin PBXFileReference section */
+		01306C65208CB46700A436B8 /* Castles.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; name = Castles.cpp; path = WorldsElements/Castles.cpp; sourceTree = "<group>"; };
 		01F1354C2083C3CE00F26A6B /* TP_ProjectVersion2.0 */ = {isa = PBXFileReference; explicitFileType = "compiled.mach-o.executable"; includeInIndex = 0; path = TP_ProjectVersion2.0; sourceTree = BUILT_PRODUCTS_DIR; };
 		01F1354F2083C3CE00F26A6B /* main.cpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; path = main.cpp; sourceTree = "<group>"; };
+		01F135562083C46300F26A6B /* BasicUnit.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; name = BasicUnit.cpp; path = UnitsClasses/BasicUnit.cpp; sourceTree = "<group>"; };
+		01F135582083C54500F26A6B /* Orcs.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; name = Orcs.cpp; path = UnitsClasses/Orcs.cpp; sourceTree = "<group>"; };
+		01F1355A2083C61B00F26A6B /* People.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; name = People.cpp; path = UnitsClasses/People.cpp; sourceTree = "<group>"; };
+		01F1355C2083C77D00F26A6B /* Elfs.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; name = Elfs.cpp; path = UnitsClasses/Elfs.cpp; sourceTree = "<group>"; };
+		01F1355E2083C92F00F26A6B /* Army.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; name = Army.cpp; path = UnitsClasses/Army.cpp; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -58,6 +70,12 @@
 			isa = PBXGroup;
 			children = (
 				01F1354F2083C3CE00F26A6B /* main.cpp */,
+				01F135562083C46300F26A6B /* BasicUnit.cpp */,
+				01F135582083C54500F26A6B /* Orcs.cpp */,
+				01F1355A2083C61B00F26A6B /* People.cpp */,
+				01F1355C2083C77D00F26A6B /* Elfs.cpp */,
+				01F1355E2083C92F00F26A6B /* Army.cpp */,
+				01306C65208CB46700A436B8 /* Castles.cpp */,
 			);
 			path = TP_ProjectVersion2.0;
 			sourceTree = "<group>";
@@ -119,7 +137,13 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				01F1355F2083C92F00F26A6B /* Army.cpp in Sources */,
+				01306C66208CB46700A436B8 /* Castles.cpp in Sources */,
+				01F1355B2083C61B00F26A6B /* People.cpp in Sources */,
+				01F135592083C54500F26A6B /* Orcs.cpp in Sources */,
+				01F135572083C46300F26A6B /* BasicUnit.cpp in Sources */,
 				01F135502083C3CE00F26A6B /* main.cpp in Sources */,
+				01F1355D2083C77D00F26A6B /* Elfs.cpp in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -248,6 +272,7 @@
 				01F135552083C3CE00F26A6B /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
 	};
