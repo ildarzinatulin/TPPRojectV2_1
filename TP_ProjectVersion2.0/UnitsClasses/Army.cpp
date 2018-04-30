@@ -6,6 +6,7 @@
 
 
 using std::vector;
+using std::endl;
 
 
 class ArmyFactory {
@@ -76,13 +77,13 @@ public:
         for(int i = 0; i < wizards.size(); ++i)  delete wizards[i];
         for(int i = 0; i < cavalries.size(); ++i)  delete cavalries[i];
     }
-    void info() {
+    virtual void info() {
         cout << infantries.size();
         cout << archers.size();
         cout << wizards.size();
         cout << cavalries.size();
     }
-    void update(){
+    virtual void update(){
         for (int i = 0; i < infantries.size(); i++){
             infantries[i]->improve();
         }
@@ -98,7 +99,7 @@ public:
         updateForce();
     }
     
-    void updateForce(){
+    virtual void updateForce(){
         int nForce = 0;
         for (int i = 0; i < infantries.size(); i++){
             nForce += infantries[i]->Force;
@@ -115,25 +116,25 @@ public:
         force = nForce;
     }
     
-    void increaseCntOfInfantries(ArmyFactory& factory, int cnt){
+    virtual void increaseCntOfInfantries(ArmyFactory& factory, int cnt){
         for (int i = 0; i < cnt; i++){
             infantries.push_back(factory.makeInfantry());
             force += infantries[infantries.size() - 1]->Force;
         }
     }
-    void increaseCntOfArchers(ArmyFactory& factory, int cnt){
+    virtual void increaseCntOfArchers(ArmyFactory& factory, int cnt){
         for (int i = 0; i < cnt; i++){
             archers.push_back(factory.makeArchers());
             force += archers[archers.size() - 1]->Force;
         }
     }
-    void increaseCntOfWizards(ArmyFactory& factory, int cnt){
+    virtual void increaseCntOfWizards(ArmyFactory& factory, int cnt){
         for (int i = 0; i < cnt; i++){
             wizards.push_back(factory.makeWizard());
             force += wizards[wizards.size() - 1]->Force;
         }
     }
-    void increaseCntOfCavalries(ArmyFactory& factory, int cnt){
+    virtual void increaseCntOfCavalries(ArmyFactory& factory, int cnt){
         for (int i = 0; i < cnt; i++){
             cavalries.push_back(factory.makeCavalry());
             force += cavalries[cavalries.size() - 1]->Force;
@@ -147,6 +148,46 @@ public:
     
     int force = 0;
     
+};
+
+
+class ArmyProxy: public Army{
+public:
+    ArmyProxy(){
+        army = new Army;
+    }
+    virtual void info() {
+        cout << "method get info" << endl;
+        army->info();
+    }
+    virtual void update(){
+        cout << "method update" << endl;
+        army->update();
+    }
+    
+    virtual void updateForce(){
+        cout << "method update force" << endl;
+        army->updateForce();
+    }
+    
+    virtual void increaseCntOfInfantries(ArmyFactory& factory, int cnt){
+        cout << "method increaseCntOfInfantries" << endl;
+        army->increaseCntOfInfantries(factory, cnt);
+    }
+    virtual void increaseCntOfArchers(ArmyFactory& factory, int cnt){
+        cout << "method increaseCntOfArchers" << endl;
+        army->increaseCntOfArchers(factory, cnt);
+    }
+    virtual void increaseCntOfWizards(ArmyFactory& factory, int cnt){
+        cout << "method increaseCntOfWizards" << endl;
+        army->increaseCntOfWizards(factory, cnt);
+    }
+    virtual void increaseCntOfCavalries(ArmyFactory& factory, int cnt){
+        cout << "method increaseCntOfCavalries" << endl;
+        army->increaseCntOfCavalries(factory, cnt);
+    }
+    
+    Army *army;
 };
 
 class DecoratorArmy{
@@ -168,7 +209,7 @@ public:
 class ArmyCreator{
 public:
     Army* create(ArmyFactory& factory){
-        Army * newArmy = new Army;
+        Army * newArmy = new ArmyProxy;
         for (int i = 0; i < 5; i++){
             newArmy -> infantries.push_back(factory.makeInfantry());
             newArmy -> archers.push_back(factory.makeArchers());
